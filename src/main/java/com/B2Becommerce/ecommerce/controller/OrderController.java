@@ -26,7 +26,7 @@ public class OrderController {
     public ResponseEntity<?> checkout_order(@RequestBody Order order){
 
         try{
-            Order newOrder = orderService.cretaeOrder(order);
+            Order newOrder = orderService.processOrder(order);
             return new ResponseEntity<>(newOrder, HttpStatus.CREATED);
         } catch (Exception e) {
             log.error("e: ", e);

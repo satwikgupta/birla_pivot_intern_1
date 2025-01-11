@@ -1,9 +1,8 @@
 package com.B2Becommerce.ecommerce.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.time.LocalDateTime;
 
 public class User {
 
@@ -19,6 +18,14 @@ public class User {
 
     @Column(nullable = false)
     private String password;
+
+    @Column(name = "created_at", nullable = false, updatable = false)
+    private LocalDateTime createdAt;
+
+    @PrePersist
+    public void prePersist() {
+        this.createdAt = LocalDateTime.now();  // Automatically set the created_at field
+    }
 
 
 

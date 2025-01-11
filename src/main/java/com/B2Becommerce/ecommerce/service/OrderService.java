@@ -1,10 +1,13 @@
 package com.B2Becommerce.ecommerce.service;
 
+import com.B2Becommerce.ecommerce.events.OrderCreatedEvent;
 import com.B2Becommerce.ecommerce.model.Order;
 import com.B2Becommerce.ecommerce.model.Product;
 import com.B2Becommerce.ecommerce.repo.OrderRepo;
 import com.B2Becommerce.ecommerce.repo.ProductRepo;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,10 +19,17 @@ public class OrderService {
     private OrderRepo orderRepo;
 
     @Autowired
+    private ProductService productService;
+
+    @Autowired
     private ProductRepo productRepo;
 
     @Autowired
     private PaymentService paymentService;
+
+    @Autowired
+    private ApplicationEventPublisher eventPublisher;
+
 
 
     public double calculateSubtotal(List<Product> productsInCart) {
@@ -36,42 +46,40 @@ public class OrderService {
                 .sum();
     }
 
-    public Order cretaeOrder(Order order){
-        try{
-            if(order!=null) {
-                List<Product> productsInCart = order.getProducts();
-                if(productsInCart.isEmpty()){
-                    throw new Exception("empty order");
-                }
-                double calculatedTotal = calculateSubtotal(productsInCart);
 
-                if(calculatedTotal!=order.getTotal_amount()){
-                    throw new Exception("Order amount mismatch cart tampered");
-                }
+    @Transactional
+    public Order processOrder(Order order) throws Exception {
+        List<Product> products = order.getProducts();
 
-                if(order.getPayment_method().equalsIgnoreCase("cash")){
-                    System.out.println("order successful");
-                    paymentService.ProcessCashPayment(calculatedTotal);
+        // Update quantities for all products in the order
+        for (Product product : products) {
+            productService.updateQty(product.getId());
+        }
+
+        // Create the order
+        return createOrder(order);
+    }
 
 
-                }else if(order.getPayment_method()
-                        .equalsIgnoreCase("online")){
-                            paymentService
-                                    .initiateOnlinePayment(calculatedTotal);
-                }
+    public Order createOrder(Order order) throws Exception {
+        // Validate order details
+        if (order == null || order.getProducts().isEmpty()) {
+            throw new Exception("Order is empty or invalid.");
+        }
 
-
-                //order.setOrder_status("placed");
-                return orderRepo.save(order);
-
-            }else{
-                throw new Exception("empty order");
-            }
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        double calculatedTotal = calculateSubtotal(order.getProducts());
+        if (calculatedTotal != order.getTotal_amount()) {
+            throw new Exception("Order amount mismatch; cart tampered.");
         }
 
 
+
+        // Save the order
+        Order newOrder = orderRepo.save(order);
+
+        eventPublisher.publishEvent(new OrderCreatedEvent(order));
+
+        return newOrder;
     }
 
     public List<Order> getAll(){
