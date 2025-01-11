@@ -1,11 +1,15 @@
 package com.birlaPivot.demo.services;
 
+import com.birlaPivot.demo.events.MaterialUpdatedEvent;
 import com.birlaPivot.demo.models.Cement;
 import com.birlaPivot.demo.models.Material;
 import com.birlaPivot.demo.models.MaterialDTO;
 import com.birlaPivot.demo.models.SteelBar;
 import com.birlaPivot.demo.repo.MaterialRepo;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEvent;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -21,6 +25,8 @@ public class MaterialService {
     @Autowired
     private MaterialRepo materialRepo;
 
+    @Autowired
+    private ApplicationEventPublisher applicationEventPublisher;
 
     public ResponseEntity<List<MaterialDTO>> getAllMaterial() {
         try{
@@ -44,6 +50,7 @@ public class MaterialService {
         }
     }
 
+    @Transactional
     public ResponseEntity<String> addCement(Cement cement) {
         try {
             materialRepo.save(cement);
@@ -53,6 +60,7 @@ public class MaterialService {
         }
     }
 
+    @Transactional
     public ResponseEntity<String> addSteelBar(SteelBar steelBar) {
         try {
             materialRepo.save(steelBar);
@@ -100,34 +108,32 @@ public class MaterialService {
         }
     }
 
+    @Transactional
     public ResponseEntity<MaterialDTO> patchMaterialById(int id, MaterialDTO materialDTO) {
         try {
-            Optional<Material> materialOptional = materialRepo.findById(id);
+            Material material = materialRepo.findById(id).orElseThrow(() -> new RuntimeException("Material not found"));
 
-            if (materialOptional.isEmpty()) {
-                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-            }
-
-            Material material = materialOptional.get();
-
-            if ("CEMENT".equalsIgnoreCase(materialDTO.getMaterialType()) && material instanceof Cement) {
-                Cement cement = (Cement) material;
+            if ("CEMENT".equalsIgnoreCase(materialDTO.getMaterialType()) && material instanceof Cement cement) {
                 cement.setPrice(materialDTO.getPrice());
                 cement.setMargin(materialDTO.getMargin());
+                cement.setNumberOfBags(materialDTO.getNumberOfBags());
                 cement.setTotalPricePerUnit(materialDTO.getPrice() + materialDTO.getMargin());
                 cement.calculateTotalPrice();
 
-            } else if ("STEELBAR".equalsIgnoreCase(materialDTO.getMaterialType()) && material instanceof SteelBar) {
-                SteelBar steelBar = (SteelBar) material;
+                material = materialRepo.save(cement);
+
+            } else if ("STEELBAR".equalsIgnoreCase(materialDTO.getMaterialType()) && material instanceof SteelBar steelBar) {
                 steelBar.setPrice(materialDTO.getPrice());
                 steelBar.setMargin(materialDTO.getMargin());
+                steelBar.setUnits(materialDTO.getUnits());
                 steelBar.setTotalPricePerUnit(materialDTO.getPrice() + materialDTO.getMargin());
                 steelBar.calculateTotalPrice();
+
+                material = materialRepo.save(steelBar);
+
             } else {
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }
-
-            materialRepo.save(material);
 
             MaterialDTO updatedMaterialDTO = new MaterialDTO(
                     material.getId(),
@@ -140,6 +146,8 @@ public class MaterialService {
                     material.getTotalPricePerBag(),
                     material.getMaterialType()
             );
+
+            applicationEventPublisher.publishEvent(new MaterialUpdatedEvent(this, updatedMaterialDTO));
 
             return new ResponseEntity<>(updatedMaterialDTO, HttpStatus.OK);
 
