@@ -28,20 +28,20 @@ public class ProductService {
         return repo.findById(prodId).orElse(new Product());
     }
 
-//    @Transactional
+    @Transactional
     public void addProduct(Product prod){
         repo.save(prod);
 
         //to simulate rollback
-//        if(prod.getProdName().length() > 10)
-//                throw new RuntimeException("Product Name Too long. Rolling Back...");
+        if(prod.getProdName().length() > 10)
+                throw new RuntimeException("Product Name Too long. Rolling Back...");
 
-//        ProductLog productLog = new ProductLog();
-//        productLog.setAction("Product Added");
-//        productLog.setTimestamp(java.time.LocalDateTime.now());
+        ProductLog productLog = new ProductLog();
+        productLog.setAction("Product Added");
+        productLog.setTimestamp(java.time.LocalDateTime.now());
 //        productLog.setProduct(prod);
 
-//        logService.addProductLog(productLog);
+        logService.addProductLog(productLog);
     }
 
 
