@@ -30,6 +30,9 @@ public class OrderService {
     @Autowired
     private ApplicationEventPublisher eventPublisher;
 
+    @Autowired
+    private UserService userService;
+
 
 
     public double calculateSubtotal(List<Product> productsInCart) {
@@ -48,17 +51,20 @@ public class OrderService {
 
 
     @Transactional
-    public Order processOrder(Order order) throws Exception {
+    public Order processOrder(String email, Order order) throws Exception {
+        // Validate and update quantities for all products in the order
         List<Product> products = order.getProducts();
-
-        // Update quantities for all products in the order
         for (Product product : products) {
             productService.updateQty(product.getId());
         }
 
-        // Create the order
+        // Associate the order with the user
+        userService.addUserOrders(email, order);
+
+        // Perform final validation and save the order
         return createOrder(order);
     }
+
 
 
     public Order createOrder(Order order) throws Exception {
@@ -72,15 +78,15 @@ public class OrderService {
             throw new Exception("Order amount mismatch; cart tampered.");
         }
 
-
-
-        // Save the order
+        // Save the order explicitly (only once here)
         Order newOrder = orderRepo.save(order);
 
+        // Publish an event after the order is successfully created
         eventPublisher.publishEvent(new OrderCreatedEvent(order));
 
         return newOrder;
     }
+
 
     public List<Order> getAll(){
         return orderRepo.findAll();

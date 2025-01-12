@@ -6,7 +6,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,11 +21,11 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
-    @PostMapping
-    public ResponseEntity<?> checkout_order(@RequestBody Order order){
+    @PostMapping("/{email}")
+    public ResponseEntity<?> checkoutOrder(@PathVariable String email, @RequestBody Order order){
 
         try{
-            Order newOrder = orderService.processOrder(order);
+            Order newOrder = orderService.processOrder(email,order);
             return new ResponseEntity<>(newOrder, HttpStatus.CREATED);
         } catch (Exception e) {
             log.error("e: ", e);

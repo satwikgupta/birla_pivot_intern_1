@@ -1,5 +1,6 @@
 package com.B2Becommerce.ecommerce.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -39,8 +40,13 @@ public class Order {
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    @JsonIgnore // Prevent recursion when serializing the user data
+    private User user; // Reference to the user who placed the order
+
     @PrePersist
     public void prePersist() {
-        this.createdAt = LocalDateTime.now();  // Automatically set the created_at field
+        this.createdAt = LocalDateTime.now(); // Automatically set the created_at field
     }
 }
