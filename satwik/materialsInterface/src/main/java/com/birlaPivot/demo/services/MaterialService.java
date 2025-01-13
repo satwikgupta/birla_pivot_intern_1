@@ -41,7 +41,7 @@ public class MaterialService {
                         material.getTotalPrices(),
                         (material instanceof Cement) ? ((Cement) material).getNumberOfBags() : 0,
                         (material instanceof SteelBar) ? ((SteelBar) material).getUnits() : 0,
-                        material.getTotalPricePerBag(),
+                        material.getTotalPricePerUnit(),
                         materialType
                 );
             }).collect(Collectors.toList()), HttpStatus.OK);
@@ -89,7 +89,7 @@ public class MaterialService {
                     material.getTotalPrices(),
                     (material instanceof Cement) ? ((Cement) material).getNumberOfBags() : 0,
                     (material instanceof SteelBar) ? ((SteelBar) material).getUnits() : 0,
-                    material.getTotalPricePerBag(),
+                    material.getTotalPricePerUnit(),
                     materialType
             );
 
@@ -117,7 +117,7 @@ public class MaterialService {
                 cement.setPrice(materialDTO.getPrice());
                 cement.setMargin(materialDTO.getMargin());
                 cement.setNumberOfBags(materialDTO.getNumberOfBags());
-                cement.setTotalPricePerUnit(materialDTO.getPrice() + materialDTO.getMargin());
+                cement.setTotalPricePerUnit();
                 cement.calculateTotalPrice();
 
                 material = materialRepo.save(cement);
@@ -126,7 +126,7 @@ public class MaterialService {
                 steelBar.setPrice(materialDTO.getPrice());
                 steelBar.setMargin(materialDTO.getMargin());
                 steelBar.setUnits(materialDTO.getUnits());
-                steelBar.setTotalPricePerUnit(materialDTO.getPrice() + materialDTO.getMargin());
+                steelBar.setTotalPricePerUnit();
                 steelBar.calculateTotalPrice();
 
                 material = materialRepo.save(steelBar);
@@ -143,7 +143,7 @@ public class MaterialService {
                     material.getTotalPrices(),
                     (material instanceof Cement) ? ((Cement) material).getNumberOfBags() : 0,
                     (material instanceof SteelBar) ? ((SteelBar) material).getUnits() : 0,
-                    material.getTotalPricePerBag(),
+                    material.getTotalPricePerUnit(),
                     material.getMaterialType()
             );
 

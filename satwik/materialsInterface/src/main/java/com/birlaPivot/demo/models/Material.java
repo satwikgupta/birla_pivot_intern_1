@@ -25,11 +25,13 @@ public abstract class Material {
         this.totalPricePerUnit = price + margin;
     }
 
+
+
     public String getMaterialType() {
         return this.getClass().getSimpleName().toUpperCase();
     }
 
-    public int getTotalPricePerBag() {
-        return price + margin;
+    public void setTotalPricePerUnit() {
+        this.totalPricePerUnit = price + margin;
     }
 }
