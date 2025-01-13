@@ -5,28 +5,46 @@ import com.B2Becommerce.ecommerce.model.Order;
 import com.B2Becommerce.ecommerce.model.User;
 import com.B2Becommerce.ecommerce.repo.UserRepo;
 import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class UserService {
-    @Autowired
-    private UserRepo userRepo;
+
+    private final UserRepo userRepo;
+
+    private final JwtService jwtService;
+
+    private final AuthenticationManager authManager;
+
+
+    private final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
 
     public String login(User user) throws Exception{
-        User userInDb = userRepo.findByEmail(user.getEmail()).orElse(null);
-        if(userInDb==null) throw new Exception("User Not Found");
-        else if(userInDb.getPassword().equals(user.getPassword())){
-            String jwtToken = "ejfhwjhfurfgiuwgf";
-            return jwtToken;
+
+        Authentication authentication = authManager
+                .authenticate(new UsernamePasswordAuthenticationToken(user.getEmail(),
+                        user.getPassword()));
+
+        if (authentication.isAuthenticated()) {
+            return jwtService.generateToken(user.getEmail());
+        } else {
+            throw new Exception("user not found");
         }
-        return null;
     }
 
     public User register(User user){
-        System.out.println(user.toString());
+
+//        System.out.println(user.toString());
+        user.setPassword(encoder.encode(user.getPassword()));
 
         return userRepo.save(user);
     }
@@ -53,6 +71,10 @@ public class UserService {
 
     public List<User> getAll(){
         return userRepo.findAll();
+    }
+
+    public User getUserByEmail(String email){
+        return userRepo.findByEmail(email).orElse(null);
     }
 
 }

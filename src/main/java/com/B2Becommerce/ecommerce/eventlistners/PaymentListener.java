@@ -18,13 +18,13 @@ public class PaymentListener {
     @TransactionalEventListener(phase = TransactionPhase.AFTER_COMPLETION)
     public void handleOrderCreatedEvent(OrderCreatedEvent event) {
         Order order = event.getOrder();
-        double totalAmount = order.getTotal_amount();
+        double totalAmount = order.getTotalAmount();
 
         try {
-            if (order.getPayment_method().equalsIgnoreCase("cash")) {
+            if (order.getPaymentMethod().equalsIgnoreCase("cash")) {
                 paymentService.ProcessCashPayment(totalAmount);
                 System.out.println("Cash payment processed successfully for order: " + order.getId());
-            } else if (order.getPayment_method().equalsIgnoreCase("online")) {
+            } else if (order.getPaymentMethod().equalsIgnoreCase("online")) {
                 paymentService.initiateOnlinePayment(totalAmount);
                 System.out.println("Online payment initiated successfully for order: " + order.getId());
             }

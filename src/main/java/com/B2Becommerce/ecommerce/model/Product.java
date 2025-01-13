@@ -19,7 +19,7 @@ public class Product {
     @Column(nullable = false)
     private double price;
 
-    @Column(nullable = false)
+    @Column(nullable = false,name = "available_qty")
     private int qty;
 
     @Column(nullable = false)
@@ -35,5 +35,5 @@ public class Product {
     @PrePersist
     public void prePersist() {
         this.createdAt = LocalDateTime.now();  // Automatically set the created_at field
-    }// List of orders containing this product
+    }
 }

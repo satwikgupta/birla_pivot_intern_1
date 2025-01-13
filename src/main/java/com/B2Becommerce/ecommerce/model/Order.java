@@ -1,9 +1,12 @@
 package com.B2Becommerce.ecommerce.model;
 
+import com.B2Becommerce.ecommerce.dto.OrderDTO;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -11,21 +14,26 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "orders")
 public class Order {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID) // Use UUID for auto-generating unique IDs
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @Column(nullable = false)
-    private double total_amount;
+    @Column(nullable = false,name = "total_amount")
+    private double totalAmount;
 
-    @Column(nullable = false)
-    private String payment_method;
 
-    private String order_status;
+    @Column(nullable = false,name = "payment_method")
+    private String paymentMethod;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false,name = "order_status")
+    private OrderStatus orderStatus;
 
     @ManyToMany
     @JoinTable(
@@ -33,20 +41,23 @@ public class Order {
             joinColumns = @JoinColumn(name = "order_id"),
             inverseJoinColumns = @JoinColumn(name = "product_id")
     )
-    @OnDelete(action = OnDeleteAction.CASCADE) // Enable cascading delete for the join table
-    @JsonIgnoreProperties("orders") // Prevent infinite recursion while serializing the data
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnoreProperties("orders")
     private List<Product> products;
+
 
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
-    @JsonIgnore // Prevent recursion when serializing the user data
-    private User user; // Reference to the user who placed the order
+    @JsonIgnore
+    private User user;
 
     @PrePersist
     public void prePersist() {
-        this.createdAt = LocalDateTime.now(); // Automatically set the created_at field
+        this.createdAt = LocalDateTime.now();
     }
+
+
 }

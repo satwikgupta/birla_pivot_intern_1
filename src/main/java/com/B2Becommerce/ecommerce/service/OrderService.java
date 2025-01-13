@@ -6,32 +6,27 @@ import com.B2Becommerce.ecommerce.model.Product;
 import com.B2Becommerce.ecommerce.repo.OrderRepo;
 import com.B2Becommerce.ecommerce.repo.ProductRepo;
 import jakarta.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class OrderService {
 
-    @Autowired
-    private OrderRepo orderRepo;
+    private final OrderRepo orderRepo;
 
-    @Autowired
-    private ProductService productService;
+    private final ProductService productService;
 
-    @Autowired
-    private ProductRepo productRepo;
+    private final ProductRepo productRepo;
 
-    @Autowired
-    private PaymentService paymentService;
+    private final PaymentService paymentService;
 
-    @Autowired
-    private ApplicationEventPublisher eventPublisher;
+    private final ApplicationEventPublisher eventPublisher;
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
 
 
 
@@ -74,7 +69,7 @@ public class OrderService {
         }
 
         double calculatedTotal = calculateSubtotal(order.getProducts());
-        if (calculatedTotal != order.getTotal_amount()) {
+        if (calculatedTotal != order.getTotalAmount()) {
             throw new Exception("Order amount mismatch; cart tampered.");
         }
 

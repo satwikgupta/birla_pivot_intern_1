@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,19 +22,21 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
-    @PostMapping("/{email}")
-    public ResponseEntity<?> checkoutOrder(@PathVariable String email, @RequestBody Order order){
+    @PostMapping
+    public ResponseEntity<?> checkoutOrder(@RequestBody Order order) {
+        try {
+            // Retrieve the authenticated user's email from the SecurityContext
+            String email = SecurityContextHolder.getContext().getAuthentication().getName();
 
-        try{
-            Order newOrder = orderService.processOrder(email,order);
+            // Process the order
+            Order newOrder = orderService.processOrder(email, order);
             return new ResponseEntity<>(newOrder, HttpStatus.CREATED);
         } catch (Exception e) {
-            log.error("e: ", e);
-            return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
-
+            log.error("Error while processing order: ", e);
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
-
     }
+
 
     @GetMapping
     public ResponseEntity<?> fetchAllOrders(){
