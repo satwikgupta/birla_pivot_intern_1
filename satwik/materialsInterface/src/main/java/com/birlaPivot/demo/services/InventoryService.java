@@ -1,6 +1,8 @@
 package com.birlaPivot.demo.services;
 
+import com.birlaPivot.common_models.InventoryInterface;
 import com.birlaPivot.demo.events.CapitalIncreaseEvent;
+import com.birlaPivot.demo.kafka.producer.MessageProducer;
 import com.birlaPivot.demo.models.Inventory;
 import com.birlaPivot.demo.models.InventoryDTO;
 import com.birlaPivot.demo.repo.CapitalRepo;
@@ -16,6 +18,10 @@ import java.util.List;
 
 @Service
 public class InventoryService {
+
+    @Autowired
+    MessageProducer messageProducer;
+
     @Autowired
     private InventoryRepo inventoryRepo;
 
@@ -26,9 +32,14 @@ public class InventoryService {
     private ApplicationEventPublisher applicationEventPublisher;
 
 
+
+
     public ResponseEntity<List<Inventory>> getAllInventory(){
         try {
             List<Inventory> inventories = inventoryRepo.findAll();
+
+            InventoryInterface inventoryInterface = new InventoryInterface(inventories.getFirst().getId(), inventories.getFirst().getMaterialType(), inventories.getFirst().getStockInInventory());
+            messageProducer.sendMessage(inventoryInterface);
 
             return new ResponseEntity<>(inventories, HttpStatus.OK);
         } catch (Exception e) {
