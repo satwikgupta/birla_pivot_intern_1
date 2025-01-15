@@ -1,6 +1,7 @@
 package com.B2Becommerce.ecommerce.service;
 
 import com.B2Becommerce.ecommerce.events.OrderCreatedEvent;
+import com.B2Becommerce.ecommerce.events.OrderCreatedNotification;
 import com.B2Becommerce.ecommerce.model.Order;
 import com.B2Becommerce.ecommerce.model.Product;
 import com.B2Becommerce.ecommerce.repo.OrderRepo;
@@ -27,6 +28,8 @@ public class OrderService {
     private final ApplicationEventPublisher eventPublisher;
 
     private final UserService userService;
+
+    private final KafkaOrderEventPublisher kafkaOrderEventPublisher;
 
 
 
@@ -57,12 +60,12 @@ public class OrderService {
         userService.addUserOrders(email, order);
 
         // Perform final validation and save the order
-        return createOrder(order);
+        return createOrder(email,order);
     }
 
 
-
-    public Order createOrder(Order order) throws Exception {
+    @Transactional
+    public Order createOrder(String email,Order order) throws Exception {
         // Validate order details
         if (order == null || order.getProducts().isEmpty()) {
             throw new Exception("Order is empty or invalid.");
@@ -77,7 +80,9 @@ public class OrderService {
         Order newOrder = orderRepo.save(order);
 
         // Publish an event after the order is successfully created
-        eventPublisher.publishEvent(new OrderCreatedEvent(order));
+        eventPublisher.publishEvent(new OrderCreatedEvent(newOrder));
+
+        kafkaOrderEventPublisher.emitOrderCreatedEvent(new OrderCreatedNotification(newOrder.getId(),email));
 
         return newOrder;
     }

@@ -11,5 +11,4 @@ public class OrderCreatedEvent {
         this.order=order;
 
     }
-
 }
