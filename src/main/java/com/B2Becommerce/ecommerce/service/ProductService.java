@@ -3,6 +3,7 @@ package com.B2Becommerce.ecommerce.service;
 import com.B2Becommerce.ecommerce.model.Order;
 import com.B2Becommerce.ecommerce.model.Product;
 import com.B2Becommerce.ecommerce.repo.ProductRepo;
+import jakarta.transaction.Transactional;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,6 +87,21 @@ public class ProductService {
             throw new RuntimeException("Failed to update product: " + e.getMessage());
         }
     }
+
+    @Transactional
+    public Product updateQty(String id) throws Exception {
+        Product product = productRepo.findById(id)
+                .orElseThrow(() -> new Exception("Product not found: " + id));
+
+        if (product.getQty() < 1) {
+            throw new Exception("Product is out of stock: " + id);
+        }
+
+        product.setQty(product.getQty() - 1);
+        return productRepo.save(product);
+    }
+
+
 
 
 }
