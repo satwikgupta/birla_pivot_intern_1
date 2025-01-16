@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="notification" />
       </profile>
       <profile name="Annotation profile for ecommerce" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -17,11 +18,39 @@
         </processorPath>
         <module name="ecommerce" />
       </profile>
+      <profile name="Annotation profile for eventsDTO" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
+        </processorPath>
+        <module name="eventsDTO" />
+      </profile>
+      <profile name="Annotation profile for EventNotification" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
+        </processorPath>
+        <module name="EventNotification" />
+      </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="notification (1)" target="21" />
+      <module name="notification (2)" target="21" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="EventNotification" options="-parameters" />
       <module name="ecommerce" options="-parameters" />
+      <module name="eventsDTO" options="-parameters" />
+      <module name="notification" options="-parameters" />
+      <module name="notification (1)" options="-parameters" />
+      <module name="notification (2)" options="-parameters" />
     </option>
   </component>
 </project>

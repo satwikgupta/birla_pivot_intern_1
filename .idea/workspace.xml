@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9fbde884-3cd5-44be-bc47-a83feb2a0600" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/EventNotification/src/main/java/com/ecommerce/EventNotification/service/EventNotoficationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/birla_pivot_intern_1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.run/Template Application.run.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HELP.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/birla_pivot_intern_1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.run/Template Application.run.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HELP.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/B2Becommerce/ecommerce/EcommerceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/B2Becommerce/ecommerce/config/JwtFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/B2Becommerce/ecommerce/config/PostgresqlDBConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/B2Becommerce/ecommerce/config/SecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/B2Becommerce/ecommerce/controller/OrderController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/B2Becommerce/ecommerce/controller/ProductController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/B2Becommerce/ecommerce/controller/PublicController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/B2Becommerce/ecommerce/controller/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/B2Becommerce/ecommerce/dto/OrderDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/B2Becommerce/ecommerce/eventlistners/PaymentListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/B2Becommerce/ecommerce/events/OrderCreatedEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/B2Becommerce/ecommerce/events/OrderCreatedNotification.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/B2Becommerce/ecommerce/model/Order.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/B2Becommerce/ecommerce/model/OrderStatus.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/B2Becommerce/ecommerce/model/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/B2Becommerce/ecommerce/model/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/B2Becommerce/ecommerce/model/UserPrincipal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/B2Becommerce/ecommerce/repo/OrderRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/B2Becommerce/ecommerce/repo/ProductRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/B2Becommerce/ecommerce/repo/UserRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/B2Becommerce/ecommerce/service/JwtService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/B2Becommerce/ecommerce/service/KafkaOrderEventPublisher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/B2Becommerce/ecommerce/service/OrderService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/B2Becommerce/ecommerce/service/PaymentService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/B2Becommerce/ecommerce/service/ProductService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/B2Becommerce/ecommerce/service/UserDetailsServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/B2Becommerce/ecommerce/service/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/B2Becommerce/ecommerce/EcommerceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/B2Becommerce/ecommerce/EcommerceApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/B2Becommerce/ecommerce/config/JwtFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/B2Becommerce/ecommerce/config/PostgresqlDBConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/B2Becommerce/ecommerce/config/SecurityConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/B2Becommerce/ecommerce/controller/OrderController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/B2Becommerce/ecommerce/controller/ProductController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/B2Becommerce/ecommerce/controller/PublicController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/B2Becommerce/ecommerce/controller/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/B2Becommerce/ecommerce/dto/OrderDTO$OrderDTOBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/B2Becommerce/ecommerce/dto/OrderDTO$ProductDTO$ProductDTOBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/B2Becommerce/ecommerce/dto/OrderDTO$ProductDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/B2Becommerce/ecommerce/dto/OrderDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/B2Becommerce/ecommerce/eventlistners/PaymentListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/B2Becommerce/ecommerce/events/OrderCreatedEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/B2Becommerce/ecommerce/events/OrderCreatedNotification.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/B2Becommerce/ecommerce/model/Order.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/B2Becommerce/ecommerce/model/OrderStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/B2Becommerce/ecommerce/model/Product.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/B2Becommerce/ecommerce/model/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/B2Becommerce/ecommerce/model/UserPrincipal.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/B2Becommerce/ecommerce/repo/OrderRepo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/B2Becommerce/ecommerce/repo/ProductRepo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/B2Becommerce/ecommerce/repo/UserRepo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/B2Becommerce/ecommerce/service/JwtService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/B2Becommerce/ecommerce/service/KafkaOrderEventPublisher.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/B2Becommerce/ecommerce/service/OrderService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/B2Becommerce/ecommerce/service/PaymentService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/B2Becommerce/ecommerce/service/ProductService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/B2Becommerce/ecommerce/service/UserDetailsServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/B2Becommerce/ecommerce/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ecommerce-0.0.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ecommerce-0.0.1-SNAPSHOT.jar.original" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.B2Becommerce.ecommerce.EcommerceApplicationTests.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.B2Becommerce.ecommerce.EcommerceApplicationTests.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/B2Becommerce/ecommerce/EcommerceApplicationTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/B2Becommerce/ecommerce/EcommerceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/B2Becommerce/ecommerce/config/JwtFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/B2Becommerce/ecommerce/config/PostgresqlDBConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/B2Becommerce/ecommerce/config/SecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/B2Becommerce/ecommerce/controller/OrderController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/B2Becommerce/ecommerce/controller/ProductController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/B2Becommerce/ecommerce/controller/PublicController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/B2Becommerce/ecommerce/controller/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/B2Becommerce/ecommerce/dto/OrderDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/B2Becommerce/ecommerce/eventlistners/PaymentListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/B2Becommerce/ecommerce/events/OrderCreatedEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/B2Becommerce/ecommerce/events/OrderCreatedNotification.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/B2Becommerce/ecommerce/model/Order.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/B2Becommerce/ecommerce/model/OrderStatus.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/B2Becommerce/ecommerce/model/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/B2Becommerce/ecommerce/model/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/B2Becommerce/ecommerce/model/UserPrincipal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/B2Becommerce/ecommerce/repo/OrderRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/B2Becommerce/ecommerce/repo/ProductRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/B2Becommerce/ecommerce/repo/UserRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/B2Becommerce/ecommerce/service/JwtService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/B2Becommerce/ecommerce/service/KafkaOrderEventPublisher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/B2Becommerce/ecommerce/service/OrderService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/B2Becommerce/ecommerce/service/PaymentService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/B2Becommerce/ecommerce/service/ProductService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/B2Becommerce/ecommerce/service/UserDetailsServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/B2Becommerce/ecommerce/service/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/test/java/com/B2Becommerce/ecommerce/EcommerceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/B2Becommerce/ecommerce/EcommerceApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/B2Becommerce/ecommerce/config/JwtFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/B2Becommerce/ecommerce/config/PostgresqlDBConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/B2Becommerce/ecommerce/config/SecurityConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/B2Becommerce/ecommerce/controller/OrderController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/B2Becommerce/ecommerce/controller/ProductController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/B2Becommerce/ecommerce/controller/PublicController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/B2Becommerce/ecommerce/controller/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/B2Becommerce/ecommerce/dto/OrderDTO$OrderDTOBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/B2Becommerce/ecommerce/dto/OrderDTO$ProductDTO$ProductDTOBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/B2Becommerce/ecommerce/dto/OrderDTO$ProductDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/B2Becommerce/ecommerce/dto/OrderDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/B2Becommerce/ecommerce/eventlistners/PaymentListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/B2Becommerce/ecommerce/events/OrderCreatedEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/B2Becommerce/ecommerce/events/OrderCreatedNotification.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/B2Becommerce/ecommerce/model/Order.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/B2Becommerce/ecommerce/model/OrderStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/B2Becommerce/ecommerce/model/Product.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/B2Becommerce/ecommerce/model/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/B2Becommerce/ecommerce/model/UserPrincipal.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/B2Becommerce/ecommerce/repo/OrderRepo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/B2Becommerce/ecommerce/repo/ProductRepo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/B2Becommerce/ecommerce/repo/UserRepo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/B2Becommerce/ecommerce/service/JwtService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/B2Becommerce/ecommerce/service/KafkaOrderEventPublisher.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/B2Becommerce/ecommerce/service/OrderService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/B2Becommerce/ecommerce/service/PaymentService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/B2Becommerce/ecommerce/service/ProductService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/B2Becommerce/ecommerce/service/UserDetailsServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/B2Becommerce/ecommerce/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/ecommerce-0.0.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/ecommerce-0.0.1-SNAPSHOT.jar.original" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/surefire-reports/TEST-com.B2Becommerce.ecommerce.EcommerceApplicationTests.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/surefire-reports/com.B2Becommerce.ecommerce.EcommerceApplicationTests.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/test-classes/com/B2Becommerce/ecommerce/EcommerceApplicationTests.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2rfqu9jHqlHulUpg772GmP9YyBg" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.CreditApplication (1).executor": "Run",
+    "Application.CreditApplication.executor": "Run",
+    "Application.EcommerceApplication.executor": "Run",
+    "Application.EventNotificationApplication.executor": "Run",
+    "Application.EventsDtoApplication.executor": "Run",
+    "Application.NotificationApplication.executor": "Run",
+    "Application.com.ecommerce.Notification.NotificationApplication.executor": "Run",
+    "Maven.Notification [clean].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "debangan",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/debangan.bhattachary/Downloads/birla_pivot_spring_api_ecommerce/ecommerce/git_practise/debangan_ecommerce_app/EventNotification",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
+  }
+}]]></component>
+  <component name="RunManager" selected="Application.CreditApplication (1)">
+    <configuration name="CreditApplication (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.ecommerce.notification.CreditApplication" />
+      <module name="notification" />
+      <option name="PROGRAM_PARAMETERS" value="$MAVEN_REPOSITORY$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ecommerce.notification.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EcommerceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.B2Becommerce.ecommerce.EcommerceApplication" />
+      <module name="ecommerce" />
+      <option name="PROGRAM_PARAMETERS" value="$MAVEN_REPOSITORY$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.B2Becommerce.ecommerce.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EventNotificationApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.ecommerce.EventNotification.EventNotificationApplication" />
+      <module name="EventNotification" />
+      <option name="PROGRAM_PARAMETERS" value="$MAVEN_REPOSITORY$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ecommerce.EventNotification.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NotificationApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.ecommerce.notification.NotificationApplication" />
+      <module name="notification (2)" />
+      <option name="PROGRAM_PARAMETERS" value="$MAVEN_REPOSITORY$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ecommerce.notification.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.ecommerce.Notification.NotificationApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.ecommerce.Notification.NotificationApplication" />
+      <module name="ecommerce" />
+      <option name="PROGRAM_PARAMETERS" value="$MAVEN_REPOSITORY$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ecommerce.Notification.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.EventNotificationApplication" />
+        <item itemvalue="Application.CreditApplication (1)" />
+        <item itemvalue="Application.EcommerceApplication" />
+        <item itemvalue="Application.com.ecommerce.Notification.NotificationApplication" />
+        <item itemvalue="Application.NotificationApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9fbde884-3cd5-44be-bc47-a83feb2a0600" name="Changes" comment="" />
+      <created>1736960698934</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1736960698934</updated>
+    </task>
+    <servers />
+  </component>
+</project>
