@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="eventsDTO-0.0.1-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../../eventsDTO/target/eventsDTO-0.0.1-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
