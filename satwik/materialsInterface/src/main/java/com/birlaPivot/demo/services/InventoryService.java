@@ -31,9 +31,6 @@ public class InventoryService {
     @Autowired
     private ApplicationEventPublisher applicationEventPublisher;
 
-
-
-
     public ResponseEntity<List<Inventory>> getAllInventory(){
         try {
             List<Inventory> inventories = inventoryRepo.findAll();
